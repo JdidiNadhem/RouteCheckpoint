@@ -18,6 +18,14 @@ const Add = ({handleMovie, setMovielist, movielist}) => {
     handleMovie({name, image, type, description, rating, trailer});
     handleClose();
   };
+  const emptyStates = () => {
+    setname("");
+    setimage("");
+    settype("");
+    setdescription("");
+    setrating("");
+    settrailer("");
+  };
   return (
     <>
       <Button variant="primary" onClick={handleShow}>
@@ -66,7 +74,13 @@ const Add = ({handleMovie, setMovielist, movielist}) => {
           </Form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
+          <Button
+            variant="secondary"
+            onClick={() => {
+              handleClose();
+              emptyStates();
+            }}
+          >
             Close
           </Button>
           <Button
@@ -85,6 +99,7 @@ const Add = ({handleMovie, setMovielist, movielist}) => {
                   trailer: trailer,
                 },
               ]);
+              emptyStates();
             }}
           >
             Add Movie

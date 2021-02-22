@@ -2,7 +2,7 @@ import "./App.css";
 import Nav from "./Component/Navbar/NavBar";
 import MovieList from "./Component/Movielist/MovieList";
 import React, {useState} from "react";
-import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
+import {Switch, Route} from "react-router-dom";
 import DescTrailer from "./Component/DescTrailer/DescTrailer";
 import Err from "./Component/Error/Error";
 function App() {
@@ -108,24 +108,23 @@ function App() {
         setMovielist={setMovielist}
         movielist={movielist}
       />
-      <Router>
-        <Switch>
-          <Route path="/Description/:id" component={DescTrailer} />
-          <Route
-            exact
-            path="/"
-            render={(props) => (
-              <MovieList
-                searchRating={searchRating}
-                movielist={movielist}
-                search={search}
-                {...props}
-              />
-            )}
-          />
-          <Route path="/*" component={Err} />
-        </Switch>
-      </Router>
+
+      <Switch>
+        <Route path="/Description/:id" component={DescTrailer} />
+        <Route
+          exact
+          path="/"
+          render={(props) => (
+            <MovieList
+              searchRating={searchRating}
+              movielist={movielist}
+              search={search}
+              {...props}
+            />
+          )}
+        />
+        <Route path="/*" component={Err} />
+      </Switch>
     </div>
   );
 }
