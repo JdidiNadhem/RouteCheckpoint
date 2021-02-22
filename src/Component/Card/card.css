@@ -1,0 +1,8 @@
+.c-img {
+  height: 325px;
+  /* width: 50%; */
+}
+.description {
+  overflow-y: scroll;
+  max-height: "75px";
+}
