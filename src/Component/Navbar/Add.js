@@ -1,6 +1,5 @@
 import React, {useState} from "react";
 import {Modal, Button, Form} from "react-bootstrap";
-import MovieList from "../Movielist/MovieList";
 import ReactStars from "react-rating-stars-component";
 
 const Add = ({handleMovie, setMovielist, movielist}) => {
